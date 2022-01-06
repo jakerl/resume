@@ -14,8 +14,8 @@ jobs:
           root_file: resume/resume.tex
       - name: checkout website repository
         uses: actions/checkout@v2
-        repository: jakerl/jakerl.github.io
         with:
+          repository: jakerl/jakerl.github.io
           path: website
       - name: move resume
         run: mv resume.pdf resume/resume.pdf
