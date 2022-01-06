@@ -18,7 +18,7 @@ jobs:
           repository: jakerl/jakerl.github.io
           path: website
       - name: move resume
-        run: mv resume.pdf resume/resume.pdf
+        run: mv resume.pdf website/resume.pdf
       - name: commit
         run: |
           git -C website config user.email jakerobinsonlieberman@gmail.com
