@@ -20,5 +20,6 @@ jobs:
         run: mv resume.pdf resume/resume.pdf
       - name: commit
         run: |
+          git -C add resume.pdf
           git -C resume commit -m "updating resume"
           git -C resume push
