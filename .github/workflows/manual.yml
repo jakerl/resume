@@ -4,13 +4,19 @@ jobs:
   build_latex:
     runs-on: ubuntu-latest
     steps:
-      - name: Set up Git repository
+      - name: checkout resume repository
         uses: actions/checkout@v2
-      - name: Compile LaTeX document
+        with:
+          path: resume
+      - name: checkout website repository
+        uses: actions/checkout@v2
+        with:
+          path: website
+      - name: compile resume
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: resume.tex
-      - name: upload doc
+          root_file: resume/resume.tex
+      - name: upload resume
         uses: actions/upload-artifact@v2
         with:
           name: PDF
