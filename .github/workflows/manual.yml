@@ -20,6 +20,8 @@ jobs:
         run: mv resume.pdf resume/resume.pdf
       - name: commit
         run: |
+          git config user.email $GITHUB_ACTOR
+          git config user.name $GITHUB_ACTOR
           git -C add resume.pdf
           git -C resume commit -m "updating resume"
           git -C resume push
