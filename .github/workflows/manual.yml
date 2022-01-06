@@ -8,16 +8,17 @@ jobs:
         uses: actions/checkout@v2
         with:
           path: resume
-      - name: checkout website repository
-        uses: actions/checkout@v2
-        with:
-          path: website
       - name: compile resume
         uses: xu-cheng/latex-action@v2
         with:
           root_file: resume/resume.tex
-      - name: upload resume
-        uses: actions/upload-artifact@v2
+      - name: checkout website repository
+        uses: actions/checkout@v2
         with:
-          name: PDF
-          path: resume.pdf
+          path: website
+      - name: move resume
+        run: mv resume.pdf resume/resume.pdf
+      - name: commit
+        run: |
+          git commit -m "updating resume"
+          git push
