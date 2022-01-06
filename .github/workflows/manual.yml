@@ -21,8 +21,8 @@ jobs:
         run: mv resume.pdf resume/resume.pdf
       - name: commit
         run: |
-          git -C resume config user.email jakerobinsonlieberman@gmail.com
-          git -C resume config user.name $GITHUB_ACTOR
-          git -C resume add resume.pdf
-          git -C resume commit -m "updating resume"
-          git -C resume push
+          git -C website config user.email jakerobinsonlieberman@gmail.com
+          git -C website config user.name $GITHUB_ACTOR
+          git -C website add resume.pdf
+          git -C website commit -m "updating resume"
+          git -C website push
