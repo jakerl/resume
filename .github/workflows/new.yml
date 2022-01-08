@@ -1,9 +1,9 @@
 name: Build LaTeX document
 on: [push]
 jobs:
-  build_latex:
+  run_docker_container:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout resume repository
+    - uses: actions/checkout@v1
+    - name: run container?
         uses: ./.github/actions/
-        id: cheese
