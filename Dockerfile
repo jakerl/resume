@@ -1,3 +1,4 @@
 from debian:bullseye
 
-ENTRYPOINT ["/entrypoint.sh"]
+run apt-get update
+run apt-get install -y texlive
