@@ -5,5 +5,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout resume repository
-        uses: /.github/actions/action
+        uses: ./.github/actions/action
         id: cheese
