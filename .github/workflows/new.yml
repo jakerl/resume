@@ -1,0 +1,9 @@
+name: Build LaTeX document
+on: [push]
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout resume repository
+        uses: ./
+        id: cheese
