@@ -11,5 +11,5 @@ inputs:
     steps:
       - run: docker run --name latex-container -dit -v $(pwd):/source jakerl/latex
         shell: bash
-      - run: docker exec latex-container pdflatex -output-directory ${{ inputs.output-directory }} source/${{ inputs.path-to-tex-file }}
+      - run: docker exec latex-container pdflatex -output-directory ${{ github.event.inputs.output-directory }} source/${{ github.event.inputs.path-to-tex-file }}
         shell: bash
