@@ -1,0 +1,15 @@
+name: 'generate latex pdf'
+inputs:
+  path-to-tex-file:
+    description: 'file name / path of tex file'
+    required: true
+  output-directory:
+    description: 'where to put the produced pdf'
+    required: true
+  runs:
+    using: "composite"
+    steps:
+      - run: docker run --name latex-container -dit -v $(pwd):/source jakerl/latex
+        shell: bash
+      - run: docker exec latex-container pdflatex -output-directory ${{ inputs.output-directory }} source/${{ inputs.path-to-tex-file }}
+        shell: bash
