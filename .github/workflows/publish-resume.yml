@@ -5,10 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: build image
-      run: docker build -t latex-image .
     - name: run container
-      run: docker run --name latex-container -dit -v $(pwd):/source latex-image
+      run: docker run --name latex-container -dit -v $(pwd):/source jakerl/latex
     - name: generate resume
       run: docker exec latex-container pdflatex -output-directory source source/resume.tex
     - name: checkout website repository
