@@ -9,10 +9,6 @@ inputs:
     description: 'path to the directory you want the generated pdf to be placed'
     required: true
     default: 'output'
-outputs:
-  random-number:
-    description: "Random number"
-    value: ${{ steps.random-number-generator.outputs.random-id }}
 runs:
   using: "composite"
   steps:
