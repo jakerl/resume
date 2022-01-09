@@ -1,4 +1,0 @@
-name: 'Hello World'
-runs:
-  using: 'docker'
-  image: 'Dockerfile'
