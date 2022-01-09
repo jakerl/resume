@@ -2,13 +2,13 @@ name: 'generate latex pdf'
 description: 'generate latex pdf'
 inputs:
   path-to-tex-file:
-    description: 'Who to greet'
+    description: 'path to the tex file you want to generate pdf from'
     required: true
-    default: 'World'
+    default: 'file.tex'
   output-directory:
-    description: 'Who to greet'
+    description: 'path to the directory you want the generated pdf to be placed'
     required: true
-    default: 'World'
+    default: 'output'
 outputs:
   random-number:
     description: "Random number"
