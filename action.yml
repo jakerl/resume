@@ -14,6 +14,5 @@ runs:
   steps:
     - run: docker run --name latex-container -dit -v $(pwd):/source jakerl/latex
       shell: bash
-    - id: random-number-generator
-      run: docker exec latex-container pdflatex -output-directory source/${{ inputs.output-directory }} source/${{ inputs.path-to-tex-file }}
+    - run: docker exec latex-container pdflatex -output-directory source/${{ inputs.output-directory }} source/${{ inputs.path-to-tex-file }}
       shell: bash
