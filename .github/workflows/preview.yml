@@ -1,0 +1,24 @@
+name: 'publish resume'
+
+on:
+  push:
+    branches:
+      - '*'
+      - '!main'
+
+jobs:
+  run_docker_container:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout this repository
+      uses: actions/checkout@v2
+    - name: generate resume
+      uses: jakerl/generate-latex-action@v0.0.5
+      with:
+        path-to-tex-file: resume.tex
+        output-directory: .
+    - name: upload resume as artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: resume
+        name: resume.pdf
