@@ -1,4 +1,4 @@
-name: 'publish resume'
+name: 'preview resume'
 
 on:
   push:
