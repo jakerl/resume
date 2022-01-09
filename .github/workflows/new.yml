@@ -11,3 +11,18 @@ jobs:
       run: docker run --name latex-container -dit -v $(pwd):/source latex-image
     - name: generate resume
       run: docker exec latex-container pdflatex -output-directory source source/resume.tex
+    - name: checkout website repository
+        uses: actions/checkout@v2
+        with:
+          repository: jakerl/jakerl.github.io
+          path: website
+          token: ${{ secrets.access_token }}
+      - name: move resume
+        run: mv resume.pdf website/resume.pdf
+      - name: commit
+        run: |
+          git -C website config user.email ${{ secrets.email }}
+          git -C website config user.name $GITHUB_ACTOR
+          git -C website add resume.pdf
+          git -C website commit -m "updating resume"
+          git -C website push
