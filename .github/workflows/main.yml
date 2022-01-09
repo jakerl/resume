@@ -9,18 +9,20 @@ jobs:
   run_docker_container:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - name: checkout this repository
+      uses: actions/checkout@v2
     - name: checkout website repository
       uses: actions/checkout@v2
       with:
         repository: jakerl/jakerl.github.io
         path: website
         token: ${{ secrets.access_token }}
-    - uses: jakerl/generate-latex-action@v0.0.5
+    - name: generate resume
+      uses: jakerl/generate-latex-action@v0.0.5
       with:
         path-to-tex-file: resume.tex
         output-directory: website
-    - name: commit
+    - name: deploy resume to website
       run: |
         git -C website config user.email ${{ secrets.email }}
         git -C website config user.name $GITHUB_ACTOR
