@@ -16,7 +16,7 @@ jobs:
         repository: jakerl/jakerl.github.io
         path: website
         token: ${{ secrets.access_token }}
-    - uses: ./
+    - uses: jakerl/generate-latex-action
       with:
         path-to-tex-file: resume.tex
         output-directory: website
