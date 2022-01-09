@@ -1,15 +1,23 @@
 name: 'generate latex pdf'
+description: 'generate latex pdf'
 inputs:
   path-to-tex-file:
-    description: 'file name / path of tex file'
+    description: 'Who to greet'
     required: true
+    default: 'World'
   output-directory:
-    description: 'where to put the produced pdf'
+    description: 'Who to greet'
     required: true
-  runs:
-    using: "composite"
-    steps:
-      - run: docker run --name latex-container -dit -v $(pwd):/source jakerl/latex
-        shell: bash
-      - run: docker exec latex-container pdflatex -output-directory "${{ inputs.output-directory }}" source/"${{ inputs.path-to-tex-file }}"
-        shell: bash
+    default: 'World'
+outputs:
+  random-number:
+    description: "Random number"
+    value: ${{ steps.random-number-generator.outputs.random-id }}
+runs:
+  using: "composite"
+  steps:
+    - run: docker run --name latex-container -dit -v $(pwd):/source jakerl/latex
+      shell: bash
+    - id: random-number-generator
+      run: docker exec latex-container pdflatex -output-directory ${{ inputs.output-directory }} source/${{ inputs.path-to-tex-file }}
+      shell: bash
