@@ -22,6 +22,8 @@ jobs:
       with:
         path-to-tex-file: resume.tex
         output-directory: .
+    - name: move produced resume to website directory
+      run: mv resume.pdf website/resume.pdf
     - name: deploy resume to website
       run: |
         git -C website config user.email ${{ secrets.email }}
