@@ -18,10 +18,12 @@ jobs:
         path: website
         token: ${{ secrets.access_token }}
     - name: generate resume
-      uses: jakerl/generate-latex-action@v0.0.5
+      uses: jakerl/generate-latex-action@v0.0.7
       with:
         path-to-tex-file: resume.tex
-        output-directory: website
+        output-directory: .
+    - name: move produced resume to website directory
+      run: mv resume.pdf website/resume.pdf
     - name: deploy resume to website
       run: |
         git -C website config user.email ${{ secrets.email }}
