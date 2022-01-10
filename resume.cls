@@ -74,8 +74,14 @@
 \global\let\default@color\current@\color{foreground}
 
 \newcommand{\header}[3]{
-    \begin{center}\begin{Huge}{\extralightfont#1}{\boldfont#2}\end{Huge}\end{center}
-    \begin{center}\begin{huge}\noindent#3\end{huge}\end{center}
+    \begin{center}
+        \begin{Huge}
+            {\extralightfont#1}{\boldfont#2}
+        \end{Huge}
+    \end{center}
+    \begin{center}
+        \begin{huge}#3\end{huge}
+    \end{center}
 }
 
 \newcommand{\contact}[1] {
