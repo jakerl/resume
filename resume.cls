@@ -14,6 +14,8 @@
     urlcolor = green
 }
 
+\usepackage{fontspec}
+
 \definecolor{background}{HTML}{282a36}
 \definecolor{currentline}{HTML}{44475a}
 \definecolor{selection}{HTML}{44475a}
