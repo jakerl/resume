@@ -21,7 +21,7 @@ jobs:
       uses: jakerl/generate-latex-action@v0.0.7
       with:
         path-to-tex-file: resume.tex
-        output-directory: website
+        output-directory: .
     - name: deploy resume to website
       run: |
         git -C website config user.email ${{ secrets.email }}
