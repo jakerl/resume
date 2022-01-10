@@ -15,34 +15,35 @@
 }
 
 \usepackage{fontspec}
+\usepackage[abspath]{currfile}
 
 \defaultfontfeatures[Source Serif Pro] {
     Extension = .ttf,
-    Path = SourceSerifPro/,
+    Path = \currfileabsdir/SourceSerifPro/,
     UprightFont = SourceSerifPro-Regular,
     ItalicFont = SourceSerifPro-Italic,
 }
 \defaultfontfeatures[Source Serif Pro Bold] {
     Extension = .ttf,
-    Path = SourceSerifPro/,
+    Path = \currfileabsdir/SourceSerifPro/,
     UprightFont = SourceSerifPro-Bold,
     ItalicFont = SourceSerifPro-BoldItalic,
 }
 \defaultfontfeatures[Source Serif Pro SemiBold] {
     Extension = .ttf,
-    Path = SourceSerifPro/,
+    Path = \currfileabsdir/SourceSerifPro/,
     UprightFont = SourceSerifPro-SemiBold,
     ItalicFont = SourceSerifPro-SemiBoldItalic,
 }
 \defaultfontfeatures[Source Serif Pro Light] {
     Extension = .ttf,
-    Path = SourceSerifPro/,
+    Path = \currfileabsdir/SourceSerifPro/,
     UprightFont = SourceSerifPro-Light,
     ItalicFont = SourceSerifPro-LightItalic,
 }
 \defaultfontfeatures[Source Serif Pro Extra Light] {
     Extension = .ttf,
-    Path = SourceSerifPro/,
+    Path = \currfileabsdir/SourceSerifPro/,
     UprightFont = SourceSerifPro-ExtraLight,
     ItalicFont = SourceSerifPro-ExtraLightItalic,
 }
