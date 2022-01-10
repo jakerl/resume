@@ -69,20 +69,17 @@
 \definecolor{yellow}{HTML}{f1fa8c}
 
 \pagecolor{background}
+\pagenumbering{gobble}
 
 \global\let\default@color\current@\color{foreground}
 
 \newcommand{\header}[3]{
-    \begin{Huge}
-        \noindent{\extralightfont#1}{\boldfont#2}
-    \end{Huge}
-    \newline 
-    \begin{large}
-        #3
-    \end{large}
-    \newline 
+    \begin{center}\begin{Huge}{\extralightfont#1}{\boldfont#2}\end{Huge}\end{center}
+    \begin{center}\begin{huge}\noindent#3\end{huge}\end{center}
 }
 
 \newcommand{\contact}[1] {
-    \href{mailto:#1}{#1}
+    \begin{center}
+        \href{mailto:#1}{#1}
+    \end{center}
 }
