@@ -13,7 +13,7 @@ jobs:
     - name: checkout this repository
       uses: actions/checkout@v2
     - name: generate printable resume
-      uses: jakerl/generate-latex-action@v0.0.7
+      uses: jakerl/generate-latex-action@v0.0.7.1
       with:
         path-to-tex-file: resume.tex
         output-directory: .
