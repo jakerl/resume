@@ -8,14 +8,9 @@
 \LoadClass{article}
 
 \RequirePackage{xcolor}
-\usepackage{hyperref}
-\hypersetup {
-    colorlinks = true,
-    urlcolor = green
-}
-
 \usepackage{fontspec}
 \usepackage[abspath]{currfile}
+\usepackage{hyperref}
 
 \defaultfontfeatures[Source Serif Pro] {
     Extension = .ttf,
@@ -55,18 +50,38 @@
 
 \setmainfont{Source Serif Pro}
 
+\newcommand{\cyan}{8be9fd}
+\newcommand{\green}{50fa7b}
+\newcommand{\orange}{ffb86c}
+\newcommand{\pink}{ff79c6}
+\newcommand{\purple}{bd93f9}
+\newcommand{\red}{ff5555}
+\newcommand{\yellow}{f1fa8c}
+
 \definecolor{background}{HTML}{282a36}
 \definecolor{currentline}{HTML}{44475a}
 \definecolor{selection}{HTML}{44475a}
 \definecolor{foreground}{HTML}{f8f8f2}
 \definecolor{comment}{HTML}{6272a4}
-\definecolor{cyan}{HTML}{8be9fd}
-\definecolor{green}{HTML}{50fa7b}
-\definecolor{orange}{HTML}{ffb86c}
-\definecolor{pink}{HTML}{ff79c6}
-\definecolor{purple}{HTML}{bd93f9}
-\definecolor{red}{HTML}{ff5555}
-\definecolor{yellow}{HTML}{f1fa8c}
+
+\definecolor{link}{HTML}{\green}
+
+\directlua {
+    if arg then
+        for i,v in ipairs(arg) do
+            if v == "--for-print" then
+                tex.print("\string\\definecolor{background}{HTML}{FFFFFF}")
+                tex.print("\string\\definecolor{foreground}{HTML}{000000}")
+                tex.print("\string\\definecolor{link}{HTML}{111111}")
+            end
+        end
+    end
+}
+
+\hypersetup {
+    colorlinks = true,
+    urlcolor = link
+}
 
 \pagecolor{background}
 \pagenumbering{gobble}
