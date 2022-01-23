@@ -17,11 +17,17 @@ jobs:
         repository: jakerl/jakerl.github.io
         path: website
         token: ${{ secrets.access_token }}
-    - name: generate resume
+    - name: generate normal resume
       uses: jakerl/generate-latex-action@v0.0.7
       with:
         path-to-tex-file: resume.tex
         output-directory: .
+    - name: generate normal resume
+      uses: jakerl/generate-latex-action@v0.0.7
+      with:
+        path-to-tex-file: resume.tex
+        output-directory: .
+        extra-arguments: --for-print
     - name: move produced resume to website directory
       run: mv resume.pdf website/resume.pdf
     - name: deploy resume to website

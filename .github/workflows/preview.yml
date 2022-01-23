@@ -12,11 +12,12 @@ jobs:
     steps:
     - name: checkout this repository
       uses: actions/checkout@v2
-    - name: generate resume
+    - name: generate printable resume
       uses: jakerl/generate-latex-action@v0.0.7
       with:
         path-to-tex-file: resume.tex
         output-directory: .
+        extra-arguments: --for-print
     - name: upload resume as artifact
       uses: actions/upload-artifact@v2
       with:
